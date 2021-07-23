@@ -85,4 +85,5 @@ Hostname: web-79d88c97d6-mgj2x
 получить 3 вышеописанных типа в консоли.
 
 
+![Screenshot 2021-07-23 19:24:00](https://user-images.githubusercontent.com/54946404/126812498-a63874b8-9c7c-47f7-8b2a-dd7106de1f92.png)
 
