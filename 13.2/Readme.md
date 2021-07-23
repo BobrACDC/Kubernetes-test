@@ -10,6 +10,7 @@
 
 
 Получаем:
+![stage-1](https://user-images.githubusercontent.com/54946404/126811591-e6ca689e-59dc-4a84-8ee9-052395d9a479.png)
 
 
 
@@ -33,5 +34,7 @@ PVC - 13.2/pvc.yaml
 backend - 13.2/backend2.yaml
 frontend - 13.2/frontend2.yaml
 
+![devpods](https://user-images.githubusercontent.com/54946404/126811607-b035b3f8-9775-486b-bfe6-52ef56cb7d50.png)
+![tesst mounts](https://user-images.githubusercontent.com/54946404/126811618-e9e70313-5d63-4bec-bbaa-a6f01e16e042.png)
 
 
