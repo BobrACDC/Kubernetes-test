@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-back2
+  labels:
+    app: frontback2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontback2
+  template:
+    metadata:
+      labels:
+        app: frontback2
+    spec:
+      containers:
+      - name: front
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /home/kali/Documents/kube/13.2
+          name: shared
+      - name: back
+        image: debian
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /home/kali/Documents/kube/13.2
+          name: shared
+      volumes:
+        - name: shared
+          emptyDir: {}
