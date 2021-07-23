@@ -9,7 +9,7 @@
 1.  Конфигурация тестовой среды для фронтенда и бэкенда - 13.1/staging.yaml
 Конфигурация для БД - 13.1/stagesrv.yaml
 
-
+```
 (kali㉿kali)-[~/Documents/kube/13.1]
 └─$ kubectl create -f staging.yaml                                        
 deployment.apps/front-back created
@@ -92,7 +92,7 @@ web2             NodePort    10.106.2.231     <none>        8080:31274/TCP   2d2
 └─$ kubectl get statefulset
 NAME        READY   AGE
 cassandra   0/3     3m57s
-
+```
 
 
 
@@ -115,3 +115,5 @@ cassandra   0/3     3m57s
 Для БД - 13.1/shop/postgres.yaml
 
 
+![13 1 2  deploy](https://user-images.githubusercontent.com/54946404/126810288-5e469e77-f6f3-46fb-9590-1e24314e3eb9.png)
+![image info] [13 1 2  deploy]![13 1 2  pods](https://user-images.githubusercontent.com/54946404/126810217-5a9110fe-5409-47a6-b5cc-6905e3f1b49e.png)
