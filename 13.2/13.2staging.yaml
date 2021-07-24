@@ -5,7 +5,6 @@ metadata:
   labels:
     app: frontback2
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: frontback2
@@ -24,6 +23,7 @@ spec:
           name: shared
       - name: back
         image: debian
+        command: ["sleep", "180"]
         ports:
         - containerPort: 80
         volumeMounts:
