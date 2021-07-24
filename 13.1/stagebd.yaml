@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cassandra
+spec:
+  serviceName: cassandra
+  selector:
+    matchLabels:
+      app: cassandra
+  template:
+    metadata:
+      labels:
+        app: cassandra
+    spec:
+      terminationGracePeriodSeconds: 1800
+      containers:
+      - name: cassandra
+        image: gcr.io/google-samples/cassandra:v13
+        ports:
+        - containerPort: 7000
+          name: bd
+        lifecycle:
+          preStop:
+            exec:
+              command: 
+              - /bin/sh
+              - -c
+              - nodetool drain
+        readinessProbe:
+          exec:
+            command:
+            - /bin/bash
+            - -c
+            - /ready-probe.sh
+        volumeMounts:
+        - name: cassandra
+          mountPath: /usr/share/cassandra
+  volumeClaimTemplates:
+  - metadata:
+      name: cassandra
+    spec:
+      accessModes: [ "ReadWriteMany" ]
+      resources:
+        requests:
+          storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: cassandra
+  name: cassandra
+spec:
+  clusterIP: None
+  ports:
+  - port: 7000
+  selector:
+    app: cassandra
