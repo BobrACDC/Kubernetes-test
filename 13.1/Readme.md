@@ -8,7 +8,7 @@
 
 
 1.  Конфигурация тестовой среды для фронтенда и бэкенда - 13.1/staging.yaml
-Конфигурация для БД - 13.1/stagesrv.yaml
+Конфигурация для БД - 13.1/stagebd.yaml
 
 ```
 (kali㉿kali)-[~/Documents/kube/13.1]
@@ -89,11 +89,14 @@ kubernetes       ClusterIP   10.96.0.1        <none>        443/TCP          2d2
 web              NodePort    10.111.140.182   <none>        8080:32148/TCP   2d22h
 web2             NodePort    10.106.2.231     <none>        8080:31274/TCP   2d22h
                                                                                                                           
-┌──(kali㉿kali)-[~]
-└─$ kubectl get statefulset
-NAME        READY   AGE
-cassandra   0/3     3m57s
+$ kubectl get statefulset
+NAME                                READY   AGE
+cassandra                           0/1     6m39s
+nfs-server-nfs-server-provisioner   1/1     30h
+postgres                            1/1     30h
 ```
+
+![cassandra_descr](https://user-images.githubusercontent.com/54946404/126877274-5af75702-893d-48e2-a0e0-f5ff944f3d28.png)
 
 
 
@@ -119,3 +122,5 @@ cassandra   0/3     3m57s
 
 ![13 1 2  deploy](https://user-images.githubusercontent.com/54946404/126810288-5e469e77-f6f3-46fb-9590-1e24314e3eb9.png)
 ![image info] [13 1 2  deploy]![13 1 2  pods](https://user-images.githubusercontent.com/54946404/126810217-5a9110fe-5409-47a6-b5cc-6905e3f1b49e.png)
+
+Вывод команды kubectl describe po -l app=ecommerce приведено в файле describe_pod.txt
