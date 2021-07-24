@@ -73,7 +73,17 @@ Hostname: web-79d88c97d6-mgj2x
 
 ```
 
+```
 
+Network Policy:
+конфигурационный файл - networkpolicy.yaml
+ - разрешен весь трафик на поды, у которых есть метка: 'app: hello-node'.
+ 
+```
+ ─(kali㉿kali)-[~/Documents/kube/12.5]
+└─$ kubectl apply -f networkpolicy.yaml                                                                                                   1 ⨯
+networkpolicy.networking.k8s.io/allow-all-ingress created
+```
 
 
 
