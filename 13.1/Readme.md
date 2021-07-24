@@ -123,4 +123,4 @@ postgres                            1/1     30h
 ![13 1 2  deploy](https://user-images.githubusercontent.com/54946404/126810288-5e469e77-f6f3-46fb-9590-1e24314e3eb9.png)
 ![image info] [13 1 2  deploy]![13 1 2  pods](https://user-images.githubusercontent.com/54946404/126810217-5a9110fe-5409-47a6-b5cc-6905e3f1b49e.png)
 
-Вывод команды kubectl describe po -l app=ecommerce приведено в файле describe_pod.txt
+Вывод команды kubectl describe po -l app=ecommerce приведено в файле shop/describe_pod.txt
