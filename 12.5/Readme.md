@@ -73,7 +73,7 @@ Hostname: web-79d88c97d6-mgj2x
 
 ```
 
-```
+
 
 Network Policy:
 конфигурационный файл - networkpolicy.yaml
