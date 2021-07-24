@@ -5,7 +5,6 @@ metadata:
   labels:
     app: frontback
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: frontback
@@ -21,5 +20,18 @@ spec:
         - containerPort: 80
       - name: back
         image: debian
-        ports:
-        - containerPort: 80
+        command: ["sleep", "3600"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontback-svc
+  labels:
+    app: frontback
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: 30080
+  selector:
+    app: frontback
