@@ -1,0 +1,211 @@
+└─$ kubectl describe po -l app=ecommerce 
+Name:         postgres-0
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.99.100
+Start Time:   Fri, 23 Jul 2021 14:23:01 +0300
+Labels:       app=ecommerce
+              controller-revision-hash=postgres-77bc979f76
+              statefulset.kubernetes.io/pod-name=postgres-0
+              tier=postgres
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.25
+IPs:
+  IP:           172.17.0.25
+Controlled By:  StatefulSet/postgres
+Containers:
+  postgres:
+    Container ID:   docker://71474b210077edf0fa707b40c7ce9087492d680c66876656c912da260b7dcc49
+    Image:          postgres:latest
+    Image ID:       docker-pullable://postgres@sha256:6647385dd9ae11aa2216bf55c54d126b0a85637b3cf4039ef24e3234113588e3
+    Port:           5432/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 23 Jul 2021 14:24:57 +0300
+    Ready:          True
+    Restart Count:  0
+    Environment Variables from:
+      postgres-config  ConfigMap  Optional: false
+    Environment:       <none>
+    Mounts:
+      /var/lib/postgresql from postgredb (rw,path="postgres")
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-h524p (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  postgredb:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  postgredb-postgres-0
+    ReadOnly:   false
+  kube-api-access-h524p:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:                      <none>
+
+
+Name:         product-be-56f584c9b7-pdw8d
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.99.100
+Start Time:   Fri, 23 Jul 2021 14:22:43 +0300
+Labels:       app=ecommerce
+              pod-template-hash=56f584c9b7
+              tier=backend
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.22
+IPs:
+  IP:           172.17.0.22
+Controlled By:  ReplicaSet/product-be-56f584c9b7
+Containers:
+  product-be:
+    Container ID:   docker://52e6164a820b00519344eaca4815cf28c9202d15e70f781d1fcdc48ee5850b0a
+    Image:          chrischinchilla/humanitech-product-be
+    Image ID:       docker-pullable://chrischinchilla/humanitech-product-be@sha256:8e4b78d322f71bd8debeb87ae644ea1fe9acd1ea722e664c1d88590b65953807
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 23 Jul 2021 14:23:54 +0300
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      DATABASE_HOST:      postgres
+      DATABASE_NAME:      product
+      DATABASE_PASSWORD:  pr0dr0b0t
+      DATABASE_USER:      product_robot
+      DATABASE_PORT:      5432
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-pjcdx (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-pjcdx:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:                      <none>
+
+
+Name:         product-be-56f584c9b7-wg4p9
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.99.100
+Start Time:   Fri, 23 Jul 2021 14:22:43 +0300
+Labels:       app=ecommerce
+              pod-template-hash=56f584c9b7
+              tier=backend
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.23
+IPs:
+  IP:           172.17.0.23
+Controlled By:  ReplicaSet/product-be-56f584c9b7
+Containers:
+  product-be:
+    Container ID:   docker://9fc4a0cdf56f44c141b7e0ce23aeb4d8d59caca9388cc159b0af67f4719ce14d
+    Image:          chrischinchilla/humanitech-product-be
+    Image ID:       docker-pullable://chrischinchilla/humanitech-product-be@sha256:8e4b78d322f71bd8debeb87ae644ea1fe9acd1ea722e664c1d88590b65953807
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 23 Jul 2021 14:23:56 +0300
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      DATABASE_HOST:      postgres
+      DATABASE_NAME:      product
+      DATABASE_PASSWORD:  pr0dr0b0t
+      DATABASE_USER:      product_robot
+      DATABASE_PORT:      5432
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-qbbvn (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-qbbvn:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:                      <none>
+
+
+Name:         product-fe-56946dbfdc-qrwl5
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.99.100
+Start Time:   Fri, 23 Jul 2021 14:22:52 +0300
+Labels:       app=ecommerce
+              pod-template-hash=56946dbfdc
+              tier=frontend
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.24
+IPs:
+  IP:           172.17.0.24
+Controlled By:  ReplicaSet/product-fe-56946dbfdc
+Containers:
+  client:
+    Container ID:   docker://037c2f352e5830a507f5b5f546d42b1ce4f74382670b440271cace94e9cf9f82
+    Image:          chrischinchilla/humanitech-product-fe
+    Image ID:       docker-pullable://chrischinchilla/humanitech-product-fe@sha256:b497be9b8764d0082143be1673147084507678db670216bd553c93f02ee9fe4c
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 23 Jul 2021 14:24:04 +0300
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      PRODUCT_BE_SERVER_URL:  product-be
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-vftsq (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-vftsq:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:                      <none>
+                                          
