@@ -26,9 +26,10 @@ h_postgres: для БД
    ```
    # helm install app11test h_backend
    # helm upgrade --install app11test h_backend
-   
+     ```
+     
  ![2 1](https://user-images.githubusercontent.com/54946404/127622743-335caa9d-16ef-459b-a3ea-11f3aac684b3.png)
-  ```
+
  
  - вывод запущенных деплоев
    
@@ -41,9 +42,11 @@ h_postgres: для БД
 
 вторую версию в том же неймспейсе;
 - команды
+
  ```
  helm install app12test --set name=prod-be-2test h_backend
 ```
+
 ![3 11](https://user-images.githubusercontent.com/54946404/127622911-7b3c5b0d-62b2-4b42-a169-99bde0c3811d.png)
 
 
