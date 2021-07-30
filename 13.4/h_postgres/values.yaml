@@ -1,0 +1,15 @@
+replicaCount: 1
+name: postgres-test
+application: ecomm-test
+
+image:
+  repository: postgres:latest
+  pullPolicy: IfNotPresent
+  tag: ""
+
+service:
+  type: NodePort
+  port: 5432
+
+configMapRef:
+  name: postgres-config
