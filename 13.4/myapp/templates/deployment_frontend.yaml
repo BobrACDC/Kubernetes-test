@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.frontend.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app:  {{ .Values.application }}
+      tier: frontend 
+  template:
+    metadata:     
+      labels:
+        app:  {{ .Values.application }}
+        tier: frontend 
+    spec:
+     containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080              
+          env:
+            - name: PRODUCT_BE_SERVER_URL
+              value: product-be

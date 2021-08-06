@@ -1,0 +1,39 @@
+replicaCount: 1
+
+application: ecomm_test
+name: app1
+
+backend:
+   name: prodbe-test
+   image:
+     repository: chrischinchilla/humanitech-product-be
+     pullPolicy: IfNotPresent
+   service:
+     type: NodePort
+     port: 80
+     targetPort: 8080
+  
+  
+  
+frontend:
+   name: prodfe-test
+   image:
+     repository: chrischinchilla/humanitech-product-fe
+     pullPolicy: IfNotPresent
+   service:
+     type: NodePort
+     port: 8080
+     targetPort: 8080
+     
+     
+database:
+   name: pog-test
+   image:
+     ver: postgres
+     pullPolicy: IfNotPresent
+     tag: latest
+   service:
+     type: NodePort
+     port: 5432
+   configMapRef:
+     name: postgres-config
