@@ -25,6 +25,8 @@
 
  - вывод запущенных деплоев
    # helm list
+![ins+err](https://user-images.githubusercontent.com/54946404/128476374-21ef6e9d-961e-4042-b3e6-d132f9107bd2.png)
+
 
 
 вторую версию в том же неймспейсе;
@@ -36,10 +38,16 @@
  
 третью версию в namespace=app2.
 - команды
-   # helm install app13test h_backend --namespace app2 --create-namespace
+   # helm install myapp3 myapp --namespace app22 --create-namespace 
 
  - вывод запущенных деплоев
    # helm list
    
+
+
+![helmlist](https://user-images.githubusercontent.com/54946404/128476292-4c72fd4a-ed17-433e-b3f6-43b4f7c38532.png)
+
+
+
 
 # kubectl get deploy
