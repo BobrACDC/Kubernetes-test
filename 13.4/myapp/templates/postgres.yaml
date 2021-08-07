@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ .Values.database.name }}
+  name: {{ template "myapp.fullname" . }}
 spec:
   serviceName: "postgres"
   selector:
     matchLabels:
-        app: {{ .Values.application }}
+        app: {{ template "myapp.name" . }}
         tier: postgres
   template:
     metadata:
       labels:
-        app: {{ .Values.application }}
+        app: {{ template "myapp.name" . }}
         tier: postgres
     spec:
       containers:
@@ -19,7 +19,7 @@ spec:
         image: "{{ .Values.database.image.ver }}:{{ .Values.database.image.tag | default .Chart.AppVersion }}"
         envFrom:
           - configMapRef:
-              name: {{ .Values.database.configMapRef.name }}
+              name: postgres-config
         ports:
         - containerPort: {{ .Values.database.service.port }}
           name: postgredb
@@ -43,8 +43,8 @@ kind: ConfigMap
 metadata:
   name: postgres-config
   labels:
-    app: {{ .Values.application }}
-    tier: {{ .Values.database.name }}
+    app: {{ template "myapp.name" . }}
+    tier: postgres
 data:
   POSTGRES_DB: product
   POSTGRES_USER: product_robot

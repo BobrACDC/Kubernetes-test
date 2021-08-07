@@ -1,25 +1,17 @@
-replicaCount: 1
-
-application: ecomm_test
-name: app1
-
 backend:
-   name: prodbe-test
+   name: backend-test
    image:
-     repository: chrischinchilla/humanitech-product-be
-     pullPolicy: IfNotPresent
+     repository: chrischinchilla/humanitech-product-be     
    service:
      type: NodePort
      port: 80
      targetPort: 8080
-  
-  
+   
   
 frontend:
-   name: prodfe-test
+   name: frontend-test
    image:
      repository: chrischinchilla/humanitech-product-fe
-     pullPolicy: IfNotPresent
    service:
      type: NodePort
      port: 8080
@@ -27,10 +19,9 @@ frontend:
      
      
 database:
-   name: pog-test
+   name: postgres-test
    image:
-     ver: postgres
-     pullPolicy: IfNotPresent
+     ver: postgres     
      tag: latest
    service:
      type: NodePort
