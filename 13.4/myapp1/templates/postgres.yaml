@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ template "myapp.fullname" . }}
+spec:
+  serviceName: "postgres"
+  selector:
+    matchLabels:
+        app: {{ template "myapp.name" . }}
+        tier: postgres
+  template:
+    metadata:
+      labels:
+        app: {{ template "myapp.name" . }}
+        tier: postgres
+    spec:
+      containers:
+      - name: {{ .Values.database.name }}
+        image: "{{ .Values.database.image.ver }}:{{ .Values.database.image.tag | default .Chart.AppVersion }}"
+        envFrom:
+          - configMapRef:
+              name: postgres-config
+        ports:
+        - containerPort: {{ .Values.database.service.port }}
+          name: postgredb
+        volumeMounts:
+        - name: postgredb
+          mountPath: /var/lib/postgresql
+          subPath: postgres
+  volumeClaimTemplates:
+  - metadata:
+      name: postgredb
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 1Gi
+          
+          
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  labels:
+    app: {{ template "myapp.name" . }}
+    tier: postgres
+data:
+  POSTGRES_DB: product
+  POSTGRES_USER: product_robot
+  POSTGRES_PASSWORD: pr0dr0b0t
+  PGDATA: /var/lib/postgresql/data/pgdata

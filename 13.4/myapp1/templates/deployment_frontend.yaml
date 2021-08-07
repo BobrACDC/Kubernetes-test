@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "myapp.fullname" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:  {{ template "myapp.name" . }}
+      tier: frontend 
+  template:
+    metadata:     
+      labels:
+        app:  {{ template "myapp.name" . }}
+        tier: frontend 
+    spec:
+     containers:
+        - name: {{ .Values.frontend.name }}
+          image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080              
+          env:
+            - name: PRODUCT_BE_SERVER_URL
+              value: product-be

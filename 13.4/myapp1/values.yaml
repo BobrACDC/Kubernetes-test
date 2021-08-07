@@ -1,0 +1,30 @@
+backend:
+   name: backend-test
+   image:
+     repository: chrischinchilla/humanitech-product-be     
+   service:
+     type: NodePort
+     port: 80
+     targetPort: 8080
+   
+  
+frontend:
+   name: frontend-test
+   image:
+     repository: chrischinchilla/humanitech-product-fe
+   service:
+     type: NodePort
+     port: 8080
+     targetPort: 8080
+     
+     
+database:
+   name: postgres-test
+   image:
+     ver: postgres     
+     tag: latest
+   service:
+     type: NodePort
+     port: 5432
+   configMapRef:
+     name: postgres-config
