@@ -72,6 +72,10 @@ kubectl get secret domain-cert -o yaml > domain-cert.yml
 kubectl delete secret domain-cert
 ```
 
+![9](https://user-images.githubusercontent.com/54946404/130408670-e4d9d308-5e3a-420f-80ef-65b95ea62059.png)
+
+
+
 ### Как загрузить секрет из файла?
 
 ```
