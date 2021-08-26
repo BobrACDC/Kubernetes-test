@@ -1,0 +1,150 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "data": {
+                "name": "netology.ru"
+            },
+            "kind": "ConfigMap",
+            "metadata": {
+                "creationTimestamp": "2021-08-26T06:17:47Z",
+                "managedFields": [
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:data": {
+                                ".": {},
+                                "f:name": {}
+                            }
+                        },
+                        "manager": "kubectl-create",
+                        "operation": "Update",
+                        "time": "2021-08-26T06:17:47Z"
+                    }
+                ],
+                "name": "domain",
+                "namespace": "default",
+                "resourceVersion": "1177749",
+                "uid": "acac3945-f270-4d85-a64f-7484dc759ba0"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "data": {
+                "ca.crt": "-----BEGIN CERTIFICATE-----\nMIIDBjCCAe6gAwIBAgIBATANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwptaW5p\na3ViZUNBMB4XDTIxMDcxOTEwNTM0M1oXDTMxMDcxODEwNTM0M1owFTETMBEGA1UE\nAxMKbWluaWt1YmVDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALNE\n36qNRxuQI/gPRSMF5DzRlsvvhN77oXhaiVN7EH1nv0NJiTUk6sldTClWZAdBN8zh\nOUEIx9ZcAgYQgRXSNtD5uZb5OTpa1TC78cm/CUqEZ+/PstsEUEhFeq/8HCUaG/8k\noMykdFIG4U8B591D5kNMMQCsjHPBAgtwE/WiCGCNosUNEJf1L91HSPGHX+QAbb7X\nphY3iiAfvjFIGI+sDCAUKi9wQdRXFKxYCynh3Q6/ovHO/EUxe2s7ULH7kj0eN1t2\nZJEcYVUDN8/A7dc0EDxnbI3I9vhOPPuTha//+VMrZK/03dq9i4Q3INcQFisFE/N0\nlmyFKe6neer4dxhya2ECAwEAAaNhMF8wDgYDVR0PAQH/BAQDAgKkMB0GA1UdJQQW\nMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQW\nBBSu55P+tn8dczmMUXOYjmDk33lD6DANBgkqhkiG9w0BAQsFAAOCAQEAIF1QhELd\nbVIkJdfDBvsdSeaVAg2dWdKNGVf5FHLuc3rEbb9NWB8BDpJc4iISQopP4YYtEF2P\njCkhZu7vMXiPGh9i3suzg7TsyxfrvRGkpLcxvoH71i1ylNY2H87DY2jgnY2/a2K9\nNDLccGzpHC+lyxnoNBQ21pfVKH3Cr3YsAY0BRF0y2W4mTVxslvjOb1V5Whr0pOvS\nOtmat/lpUSpszPNKjn3pZLjZFc8gTzGMAhC1eHknJl5Yr5Etr7Ikv17oumuahP0d\nGd3g967uzRDbD1SzeUjgFGlO9rjwZ9tT7GN8s4GRHV6Vi+NF2kBzp/GDSEp2DSGq\noDhWL0BDYEIVpQ==\n-----END CERTIFICATE-----\n"
+            },
+            "kind": "ConfigMap",
+            "metadata": {
+                "creationTimestamp": "2021-07-20T10:54:13Z",
+                "managedFields": [
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:data": {
+                                ".": {},
+                                "f:ca.crt": {}
+                            }
+                        },
+                        "manager": "kube-controller-manager",
+                        "operation": "Update",
+                        "time": "2021-07-20T10:54:13Z"
+                    }
+                ],
+                "name": "kube-root-ca.crt",
+                "namespace": "default",
+                "resourceVersion": "389",
+                "uid": "5acecd4e-5241-4775-b24e-70914d474608"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "data": {
+                "nginx.conf": "server {\n    listen 80;\n    server_name  netology.ru www.netology.ru;\n    access_log  /var/log/nginx/domains/netology.ru-access.log  main;\n    error_log   /var/log/nginx/domains/netology.ru-error.log info;\n    location / {\n        include proxy_params;\n        proxy_pass http://10.10.10.10:8080/;\n    }\n}\n"
+            },
+            "kind": "ConfigMap",
+            "metadata": {
+                "creationTimestamp": "2021-08-26T06:16:06Z",
+                "managedFields": [
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:data": {
+                                ".": {},
+                                "f:nginx.conf": {}
+                            }
+                        },
+                        "manager": "kubectl-create",
+                        "operation": "Update",
+                        "time": "2021-08-26T06:16:06Z"
+                    }
+                ],
+                "name": "nginx-config",
+                "namespace": "default",
+                "resourceVersion": "1177601",
+                "uid": "0fa0b681-57fa-407a-b9e0-4f5a6c7ed1c9"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "data": {
+                "PGDATA": "/var/lib/postgresql/data/pgdata",
+                "POSTGRES_DB": "product",
+                "POSTGRES_PASSWORD": "pr0dr0b0t",
+                "POSTGRES_USER": "product_robot"
+            },
+            "kind": "ConfigMap",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"data\":{\"PGDATA\":\"/var/lib/postgresql/data/pgdata\",\"POSTGRES_DB\":\"product\",\"POSTGRES_PASSWORD\":\"pr0dr0b0t\",\"POSTGRES_USER\":\"product_robot\"},\"kind\":\"ConfigMap\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"ecommerce\",\"tier\":\"postgres\"},\"name\":\"postgres-config\",\"namespace\":\"default\"}}\n"
+                },
+                "creationTimestamp": "2021-07-23T11:22:59Z",
+                "labels": {
+                    "app": "ecommerce",
+                    "tier": "postgres"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:data": {
+                                ".": {},
+                                "f:PGDATA": {},
+                                "f:POSTGRES_DB": {},
+                                "f:POSTGRES_PASSWORD": {},
+                                "f:POSTGRES_USER": {}
+                            },
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:app": {},
+                                    "f:tier": {}
+                                }
+                            }
+                        },
+                        "manager": "kubectl-client-side-apply",
+                        "operation": "Update",
+                        "time": "2021-07-23T11:22:59Z"
+                    }
+                ],
+                "name": "postgres-config",
+                "namespace": "default",
+                "resourceVersion": "43516",
+                "uid": "f33adcd8-0fee-4749-858f-ddef0c80de62"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
